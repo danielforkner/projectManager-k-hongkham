@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { Modal } from "react-bootstrap";
 
-import useAuth from "../hooks/userAuth";
-import useLogin from "../hooks/useLogin";
-import useCustomer from "../hooks/useCustomer";
+import useAuth from "../hooks/userAuth.js";
+import useCustomer from "../hooks/useCustomer.js";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { createCustomer, getAllCustomers } from "../../axios";
+import { createCustomer, getAllCustomers } from "../../axios.js";
 
 const CreateCustomer = ({ setAllCustomers, setAccessCustomers }) => {
   const navigate = useNavigate();

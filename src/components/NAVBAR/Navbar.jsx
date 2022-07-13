@@ -1,9 +1,9 @@
 import React from "react";
-import useAuth from "../hooks/userAuth";
-import useLogin from "../hooks/useLogin";
+import useAuth from "../hooks/userAuth.js";
+import useLogin from "../hooks/useLogin.js";
 import { Link } from "react-router-dom";
-import Login from "./Login";
-import LoginBtn from "./LoginBtn";
+import Login from "./Login.jsx";
+import LoginBtn from "./LoginBtn.jsx";
 
 const Navbar = () => {
   const { user } = useAuth();

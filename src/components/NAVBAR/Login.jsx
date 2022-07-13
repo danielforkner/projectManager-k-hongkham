@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import useLogin from "../hooks/useLogin";
+import useLogin from "../hooks/useLogin.js";
 import { Modal } from "react-bootstrap";
-import LoginForm from "./LoginForm";
-import RegistrationForm from "./RegistrationForm";
+import LoginForm from "./LoginForm.jsx";
+import RegistrationForm from "./RegistrationForm.jsx";
 
 const Login = ({ loggedIn, setLoggedIn }) => {
   const { registered, setRegistered } = useLogin();

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../hooks/userAuth";
+import useAuth from "../hooks/userAuth.js";
 
 const LoginBtn = ({ loggedIn, setLoggedIn }) => {
   const navigate = useNavigate();

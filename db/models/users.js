@@ -1,15 +1,8 @@
-const client = require("../client");
-const bcrypt = require("bcrypt");
+import client from "../client.js";
+import bcrypt from "bcrypt";
 const SALT = 10;
 
-module.exports = {
-  createUser,
-  getUserByEmail,
-  getAllUsers,
-  updateUser,
-};
-
-async function createUser({
+export async function createUser({
   email,
   password,
   firstName,
@@ -40,7 +33,7 @@ async function createUser({
   }
 }
 
-async function getUserByEmail(email) {
+export async function getUserByEmail(email) {
   try {
     const {
       rows: [user],
@@ -58,7 +51,7 @@ async function getUserByEmail(email) {
   }
 }
 
-async function getAllUsers() {
+export async function getAllUsers() {
   try {
     const { rows } = await client.query(`
     SELECT*    
@@ -71,7 +64,7 @@ async function getAllUsers() {
   }
 }
 
-async function updateUser(fields = {}) {
+export async function updateUser(fields = {}) {
   const setString = Object.keys(fields)
     .map((key, idx) => `"${key}"=$${idx + 1}`)
     .join(", ");

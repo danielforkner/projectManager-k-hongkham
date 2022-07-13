@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 
-import useAuth from "../hooks/userAuth";
-import useLogin from "../hooks/useLogin";
-import useCustomer from "../hooks/useCustomer";
+import useAuth from "../hooks/userAuth.js";
+import useLogin from "../hooks/useLogin.js";
+import useCustomer from "../hooks/useCustomer.js";
 
-import { getAllCustomers } from "../../axios";
+import { getAllCustomers } from "../../axios.js";
 
-import CreateCustomer from "./CreateCustomer";
-import UpdateCustomer from "./UpdateCustomer";
-import DeleteCustomer from "./DeleteCustomer";
+import CreateCustomer from "./CreateCustomer.jsx";
+import UpdateCustomer from "./UpdateCustomer.jsx";
+import DeleteCustomer from "./DeleteCustomer.jsx";
 
 const Customers = () => {
   const { error, setError, errorMessage, setErrorMessage } = useLogin();

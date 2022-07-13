@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "react-bootstrap";
-import useAuth from "../hooks/userAuth";
-import useCustomer from "../hooks/useCustomer";
-import { getAllCustomers, updateCustomer } from "../../axios";
+import useAuth from "../hooks/userAuth.js";
+import useCustomer from "../hooks/useCustomer.js";
+import { getAllCustomers, updateCustomer } from "../../axios.js";
 
 const UpdateCustomer = ({
   editCustomer,

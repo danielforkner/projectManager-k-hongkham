@@ -1,6 +1,7 @@
 // Connect to DB
-const { Client } = require("pg");
-
+// const { Client } = require("pg");
+import pg from "pg";
+const Client = pg.Client;
 // change the DB_NAME string to whatever your group decides on
 const DB_NAME = "projectManager";
 
@@ -23,4 +24,4 @@ if (process.env.CI) {
   client = new Client(DB_URL);
 }
 
-module.exports = client;
+export default client;

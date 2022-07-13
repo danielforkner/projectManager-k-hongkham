@@ -1,4 +1,7 @@
-const { client, User, Customer } = require("./");
+import client from "./client.js";
+// const { client, User, Customer } = require("./");
+import { createCustomer } from "./models/customers.js";
+import { createUser } from "./models/users.js";
 
 async function buildTables() {
   try {
@@ -83,7 +86,7 @@ async function createInitialUsers() {
       },
     ];
 
-    const users = await Promise.all(usersToCreate.map(User.createUser));
+    const users = await Promise.all(usersToCreate.map(createUser));
     console.log("Finished Creating Users!");
   } catch (error) {
     throw error;
@@ -129,9 +132,7 @@ async function createInitialCustomers() {
         prospectValue: "$300,000",
       },
     ];
-    const customers = await Promise.all(
-      customersToCreate.map(Customer.createCustomer)
-    );
+    const customers = await Promise.all(customersToCreate.map(createCustomer));
     console.log("Finished Creating Customers!");
   } catch (error) {
     throw error;

@@ -1,14 +1,6 @@
-const client = require("../client");
+import client from "../client.js";
 
-module.exports = {
-  createCustomer,
-  getAllCustomers,
-  updateCustomer,
-  getCustomerById,
-  deleteCustomer,
-};
-
-async function createCustomer({
+export async function createCustomer({
   companyName,
   companyRep,
   salesRep,
@@ -34,7 +26,7 @@ async function createCustomer({
   }
 }
 
-async function getAllCustomers() {
+export async function getAllCustomers() {
   try {
     const { rows } = await client.query(`
     SELECT 
@@ -54,7 +46,7 @@ async function getAllCustomers() {
   }
 }
 
-async function updateCustomer(fields = {}) {
+export async function updateCustomer(fields = {}) {
   const setString = Object.keys(fields)
     .map((key, idx) => `"${key}"=$${idx + 1}`)
     .join(", ");
@@ -81,7 +73,7 @@ async function updateCustomer(fields = {}) {
   }
 }
 
-async function getCustomerById(id) {
+export async function getCustomerById(id) {
   try {
     const {
       rows: [customer],
@@ -99,7 +91,7 @@ async function getCustomerById(id) {
   }
 }
 
-async function deleteCustomer(customerId) {
+export async function deleteCustomer(customerId) {
   try {
     const {
       rows: [customer],

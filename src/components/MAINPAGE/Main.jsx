@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import useAuth from "../hooks/userAuth";
+import useAuth from "../hooks/userAuth.js";
 
-import Home from "./Home";
-import Customers from "../CUSTOMERS/Customers";
-import Directory from "../DIRECTORY/Directory";
+import Home from "./Home.jsx";
+import Customers from "../CUSTOMERS/Customers.jsx";
+import Directory from "../DIRECTORY/Directory.jsx";
 
 const Main = () => {
   const { user } = useAuth();

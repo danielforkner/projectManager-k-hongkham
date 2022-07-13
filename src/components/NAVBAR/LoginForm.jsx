@@ -1,7 +1,7 @@
 import React from "react";
-import { loginUser } from "../../axios";
-import useAuth from "../hooks/userAuth";
-import useLogin from "../hooks/useLogin";
+import { loginUser } from "../../axios.js";
+import useAuth from "../hooks/userAuth.js";
+import useLogin from "../hooks/useLogin.js";
 
 const LoginForm = ({ setRegistered }) => {
   const { setToken } = useAuth();

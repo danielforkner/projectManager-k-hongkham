@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "../style/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import AuthProvider from "./context/AuthContext";
-import LoginProvider from "./context/LoginContext";
-import CustomerProvider from "./context/CustomerContext";
+import AuthProvider from "./context/AuthContext.jsx";
+import LoginProvider from "./context/LoginContext.jsx";
+import CustomerProvider from "./context/CustomerContext.jsx";
 
-import Navbar from "./NAVBAR/Navbar";
-import Main from "./MAINPAGE/Main";
+import Navbar from "./NAVBAR/Navbar.jsx";
+import Main from "./MAINPAGE/Main.jsx";
 
 const App = () => {
   return (

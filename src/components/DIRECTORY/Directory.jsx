@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import useAuth from "../hooks/userAuth";
-import { getAllUsers } from "../../axios";
-import ContactCard from "./ContactCard";
-import UpdateContact from "./UpdateContact";
+import useAuth from "../hooks/userAuth.js";
+import { getAllUsers } from "../../axios.js";
+import ContactCard from "./ContactCard.jsx";
+import UpdateContact from "./UpdateContact.jsx";
 
 const Directory = () => {
   const { token } = useAuth();
@@ -30,10 +30,7 @@ const Directory = () => {
             >
               <ContactCard contact={contact} />
               <UpdateContact
-<<<<<<< HEAD
                 contact={contact}
-=======
->>>>>>> 43a0d6ac7a7ae42129708783c906937ac63fce10
                 userEditModal={userEditModal}
                 setUserEditModal={setUserEditModal}
               />

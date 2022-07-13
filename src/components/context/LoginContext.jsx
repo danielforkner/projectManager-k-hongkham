@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useAuth from "../hooks/userAuth";
+import useAuth from "../hooks/userAuth.js";
 export const LoginContext = React.createContext();
 
 const LoginProvider = ({ children }) => {

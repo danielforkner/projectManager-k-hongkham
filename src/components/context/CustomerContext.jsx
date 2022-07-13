@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getAllCustomers } from "../../axios";
-import useAuth from "../hooks/userAuth";
+import { getAllCustomers } from "../../axios.js";
+import useAuth from "../hooks/userAuth.js";
 
 export const CustomerContext = React.createContext();
 

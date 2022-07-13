@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CustomerContext } from "../context/CustomerContext";
+import { CustomerContext } from "../context/CustomerContext.jsx";
 
 const useCustomer = () => {
   const {

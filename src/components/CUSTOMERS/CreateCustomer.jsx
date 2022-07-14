@@ -5,7 +5,7 @@ import useCustomer from "../hooks/useCustomer.js";
 
 import { useNavigate } from "react-router-dom";
 
-import { createCustomer, getAllCustomers } from "../../axios.js";
+import { createCustomer, getAllCustomers } from "../../axios/index.js";
 
 const CreateCustomer = ({ setAllCustomers, setAccessCustomers }) => {
   const navigate = useNavigate();

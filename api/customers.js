@@ -1,10 +1,10 @@
-const customersRouter = require("express").Router();
-const {
+import {
   getAllCustomers,
   createCustomer,
   updateCustomer,
   deleteCustomer,
-} = require("../db/models/customers");
+} from "../db/models/customers";
+const customersRouter = require("express").Router();
 
 const { requireUser } = require("./utils");
 
@@ -16,7 +16,10 @@ customersRouter.use("/", (req, res, next) => {
 customersRouter.get("/all", requireUser, async (req, res, next) => {
   try {
     const allCustomers = await getAllCustomers();
-    console.log("attempting to get all Customers from api connection");
+    console.log(
+      "attempting to get all Customers from api connection",
+      allCustomers
+    );
     res.send(allCustomers);
   } catch ({ name, message }) {
     next({ name, message });

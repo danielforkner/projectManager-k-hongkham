@@ -2,20 +2,29 @@
 
 import dotenv from "dotenv";
 import express from "express";
+import cors from "cors";
+import morgan from "morgan";
+import path from "path";
+import client from "./db/client.js";
+import apiRouter from "./api/index.js";
+import { fileURLToPath } from "url";
+
 dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const server = express();
 
 //enables cross-origin resource sharing to proxy api requests
 //from localhost:3000 to localhost:4000 in local dev env
-const cors = require("cors");
+
 server.use(cors());
 
 // create logs for everything
-const morgan = require("morgan");
 server.use(morgan("dev"));
 
 //handles application/json requests
+server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 server.use((req, res, next) => {
   console.log("BODY LOGGER START");
@@ -25,24 +34,25 @@ server.use((req, res, next) => {
 });
 
 //here's our static files
-const path = require("path");
+
 server.use(express.static(path.join(__dirname, "build")));
 
 //here's the API
-server.use("/api", require("./api"));
+server.use(apiRouter);
+// server.use("/api", require("./api"));
 
 server.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 //bring in the DB connection
-const { client } = require("./db");
+// const { clientK } = require("./db");
 
 //connect to the server
-const PORT = process.env.PORT || 4000;
+export const PORT = process.env.PORT || 4000;
 
 // define a serer handle to close open tcp connection after unit tests have run
-const handle = server.listen(PORT, async () => {
+export const handle = server.listen(PORT, async () => {
   console.log(`Server is running on ${PORT}!`);
   try {
     await client.connect();
@@ -51,5 +61,3 @@ const handle = server.listen(PORT, async () => {
     console.error("Database is closed for repairs!\n", error);
   }
 });
-
-module.exports = { server, handle };

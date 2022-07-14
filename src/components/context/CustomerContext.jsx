@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllCustomers } from "../../axios.js";
+import { getAllCustomers } from "../../axios/index.js";
 import useAuth from "../hooks/userAuth.js";
 
 export const CustomerContext = React.createContext();
@@ -15,6 +15,7 @@ const CustomerProvider = ({ children }) => {
   const [needs, setNeeds] = useState("");
   const [prospectValue, setProspectValue] = useState("$0");
   const [allCustomers, setAllCustomers] = useState([]);
+
   useEffect(() => {
     if (user) {
       const displayCustomers = async () => {

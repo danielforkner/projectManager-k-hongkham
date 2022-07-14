@@ -1,5 +1,5 @@
 import React from "react";
-import { loginUser } from "../../axios.js";
+import { loginUser } from "../../axios/index.js";
 import useAuth from "../hooks/userAuth.js";
 import useLogin from "../hooks/useLogin.js";
 

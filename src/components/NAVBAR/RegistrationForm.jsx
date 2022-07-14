@@ -1,7 +1,7 @@
 import React from "react";
 import useLogin from "../hooks/useLogin.js";
 import userAuth from "../hooks/userAuth.js";
-import { registerUser } from "../../axios.js";
+import { registerUser } from "../../axios/index.js";
 import { departments } from "../lists/departments.js";
 
 const RegistrationForm = ({

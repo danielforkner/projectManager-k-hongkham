@@ -1,8 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/userAuth.js";
 import useLogin from "../hooks/useLogin.js";
-import { getAllUsers, updateUserInfo } from "../../axios.js";
+import { getAllUsers, updateUserInfo } from "../../axios/index.js";
 
 const UpdateContact = ({ userEditModal, setUserEditModal, contact }) => {
   const {
@@ -19,7 +18,7 @@ const UpdateContact = ({ userEditModal, setUserEditModal, contact }) => {
     setPosition,
     setOfficeNumber,
   } = useLogin();
-  const { user, token, allUsers, setAllUsers, setUser } = useAuth();
+  const { token, setAllUsers, setUser } = useAuth();
 
   const handleUpdateUserInfo = async (e) => {
     e.preventDefault();

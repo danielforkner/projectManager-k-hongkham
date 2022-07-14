@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getMe, getAllUsers, getAllCustomers } from "../../axios.js";
+import { getMe, getAllUsers, getAllCustomers } from "../../axios/index.js";
 
 export const AuthContext = React.createContext();
 

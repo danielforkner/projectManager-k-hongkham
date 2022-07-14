@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = process.env;
 const { requireUser } = require("./utils");
 const bcrypt = require("bcrypt");
-const { updateUserInfo } = require("../src/axios.js");
+const { updateUserInfo } = require("../src/axios/index.js");
 
 usersRouter.use("/", (req, res, next) => {
   console.log("Request to /users is being made.");

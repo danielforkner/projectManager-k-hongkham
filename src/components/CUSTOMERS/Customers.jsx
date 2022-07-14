@@ -5,14 +5,13 @@ import useAuth from "../hooks/userAuth.js";
 import useLogin from "../hooks/useLogin.js";
 import useCustomer from "../hooks/useCustomer.js";
 
-import { getAllCustomers } from "../../axios.js";
+import { getAllCustomers } from "../../axios/index.js";
 
 import CreateCustomer from "./CreateCustomer.jsx";
 import UpdateCustomer from "./UpdateCustomer.jsx";
 import DeleteCustomer from "./DeleteCustomer.jsx";
 
 const Customers = () => {
-  const { error, setError, errorMessage, setErrorMessage } = useLogin();
   const { token, user } = useAuth();
   const { allCustomers, setAllCustomers } = useCustomer();
   const [accessCustomers, setAccessCustomers] = useState(false);
@@ -62,29 +61,31 @@ const Customers = () => {
       </Modal>
       <div className="my-3 p-3 bg-body rounded shadow-sm">
         <h6 className="border-bottom pb-2 mb-0">Current Customers</h6>
+        {Array.isArray(allCustomers)
+          ? allCustomers.map((customer, idx) => {
+              return (
+                <div
+                  className="d-flex text-muted pt-3 customerId"
+                  key={`allCustomersList: ${idx}`}
+                >
+                  <div style={{ marginRight: "10px" }}>{customer.id}</div>
+                  <div className="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div className="d-flex justify-content-between">
+                      <strong className="d-block text-gray-dark">
+                        {customer.CompanyName}
+                      </strong>
+                    </div>
+                    {customer.Description}
+                  </div>
+                  <p style={{ marginRight: "10px" }}>
+                    {customer.ProspectValue}
+                  </p>
 
-        {allCustomers.map((customer, idx) => {
-          return (
-            <div
-              className="d-flex text-muted pt-3 customerId"
-              key={`allCustomersList: ${idx}`}
-            >
-              <div style={{ marginRight: "10px" }}>{customer.id}</div>
-              <div className="pb-3 mb-0 small lh-sm border-bottom w-100">
-                <div className="d-flex justify-content-between">
-                  <strong className="d-block text-gray-dark">
-                    {customer.CompanyName}
-                  </strong>
-                </div>
-                {customer.Description}
-              </div>
-              <p style={{ marginRight: "10px" }}>{customer.ProspectValue}</p>
+                  <Button variant="info" onClick={handleUpdateOpening}>
+                    Update Information
+                  </Button>
 
-              <Button variant="info" onClick={handleUpdateOpening}>
-                Update Information
-              </Button>
-
-              {/* <Modal
+                  {/* <Modal
                 customer={customer}
                 show={editCustomer}
                 onHide={() => {
@@ -94,23 +95,24 @@ const Customers = () => {
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
               > */}
-              {editCustomer ? (
-                <UpdateCustomer
-                  customer={customer}
-                  setAllCustomers={setAllCustomers}
-                  editCustomer={editCustomer}
-                  setEditCustomer={setEditCustomer}
-                  allCustomers={allCustomers}
-                />
-              ) : null}
-              {/* </Modal> */}
-              <DeleteCustomer
-                customer={customer}
-                setAllCustomers={setAllCustomers}
-              />
-            </div>
-          );
-        })}
+                  {editCustomer ? (
+                    <UpdateCustomer
+                      customer={customer}
+                      setAllCustomers={setAllCustomers}
+                      editCustomer={editCustomer}
+                      setEditCustomer={setEditCustomer}
+                      allCustomers={allCustomers}
+                    />
+                  ) : null}
+                  {/* </Modal> */}
+                  <DeleteCustomer
+                    customer={customer}
+                    setAllCustomers={setAllCustomers}
+                  />
+                </div>
+              );
+            })
+          : null}
       </div>
     </div>
   );

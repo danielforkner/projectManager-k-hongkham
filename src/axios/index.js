@@ -1,4 +1,4 @@
-import { axios } from "axios";
+import axios from "axios";
 
 export async function getAPIHealth() {
   try {
@@ -84,14 +84,14 @@ export const getAllUsers = async (token) => {
 
 export const getAllCustomers = async (token) => {
   try {
-    const { data } = await axios.get(`/api/customers/all`, {
+    const response = await axios.get(`/api/customers/all`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log("attempting to get all customers from axios", data);
-    return data;
+    console.log("attempting to get all customers from axios", response);
+    return response.data;
   } catch (error) {
     throw error.response.data;
   }
@@ -105,15 +105,15 @@ export const registerUser = async (
   department
 ) => {
   try {
-    const { data } = await axios.post("/api/users/register", {
+    const response = await axios.post("/api/users/register", {
       email,
       password,
       firstName,
       lastName,
       department,
     });
-    console.log("attempting to register", data);
-    return data;
+    console.log("attempting to register", response);
+    return response.data;
   } catch (error) {
     throw error.response.data;
   }

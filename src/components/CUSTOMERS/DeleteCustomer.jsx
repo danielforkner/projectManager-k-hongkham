@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import useAuth from "../hooks/userAuth.js";
 
-import { deleteCustomer, getAllCustomers } from "../../axios.js";
+import { deleteCustomer, getAllCustomers } from "../../axios/index.js";
 
 const DeleteCustomer = ({ customer, setAllCustomers }) => {
   const { token } = useAuth();

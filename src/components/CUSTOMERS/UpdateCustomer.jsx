@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import useAuth from "../hooks/userAuth.js";
 import useCustomer from "../hooks/useCustomer.js";
-import { getAllCustomers, updateCustomer } from "../../axios.js";
+import { getAllCustomers, updateCustomer } from "../../axios/index.js";
 
 const UpdateCustomer = ({
   editCustomer,
